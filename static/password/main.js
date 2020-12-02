@@ -6,13 +6,13 @@
       $window.addEventListener('message', (e) => {
         let data = JSON.parse(e.data)
         API.setToken(data.token)
-        this.status = 'Setting Password...'
+        this.status = '正在设置密码...'
         API.password(this.oldpass, this.newpass)
           .then((res) => {
             if (res.ok) {
-              this.status = 'Password set!'
+              this.status = '密码设置成功!'
             } else {
-              this.status = `Password set attempt failed! ${res.error}`
+              this.status = `密码设置失败! ${res.error}`
             }
           })
       })
@@ -20,11 +20,24 @@
     steam ($event) {
       if (this.newpass) {
         if (this.newpass !== this.newpass2) {
-          this.status = 'Password mismatch!'
+          this.status = '两次密码不匹配!'
         } else if (this.newpass.length < 4) {
-          this.status = 'Password too short!'
+          this.status = '密码太短!'
         } else {
-          this.status = 'Steam Auth...'
+          this.status = '正在连接到 Steam...'
+          return
+        }
+      }
+      $event.preventDefault()
+    }
+    github ($event) {
+      if (this.newpass) {
+        if (this.newpass !== this.newpass2) {
+          this.status = '两次密码不匹配!'
+        } else if (this.newpass.length < 4) {
+          this.status = '密码太短!'
+        } else {
+          this.status = '正在连接到 GitHub...'
           return
         }
       }

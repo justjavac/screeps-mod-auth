@@ -1,41 +1,41 @@
-# screepsmod-auth
+# @screepsmod/auth
 
-## This adds user/pass auth to the screeps private server
+> 本项目为 screeps 私服 <http://screeps.devtips.cn:21025> 添加了使用**用户名**和**密码**进行验证的功能。
 
-[![NPM info](https://nodei.co/npm/screepsmod-auth.png?downloads=true)](https://npmjs.org/package/screepsmod-auth)
+## 安装 
 
-[![Circle CI](https://circleci.com/gh/ScreepsMods/screepsmod-auth.svg?style=shield)](https://circleci.com/gh/ScreepsMods/screepsmod-auth)
+1. 在服务器的 screeps 安装目录运行 `npm install @screepsmod/auth`
 
-# Installation 
+## 使用
 
-1. `npm install screepsmod-auth` in your server folder.
-2. Thats it!
+### 通过 web 浏览器设置
 
-# Usage
+1. 打开 steam 客户端，登录到私服(此步骤用来初始化账号信息)
+2. 浏览器打开 <http://screeps.devtips.cn:21025/authmod/password/>
+3. 输入密码
+4. 点击 **使用 Steam 登录m**
+5. 当 Steam 授权成功后，密码设置成功
 
-## Web Form Method
-1. Open the steam client at least once (Required to create initial account)
-2. Goto http://yourServerHostOrIP:21025/authmod/password/
-3. Enter your desired password
-4. Click Signin with steam
-5. Your password should be set and you be able to login via API
+### 使用 Server CLI
 
-## Server CLI method
-1. Open the screeps server CLI (`npx screeps cli` or via Steam Server UI)
-2. Run `setPassword('Username', 'YourDesiredPassword')`
-3. Now you should be able to login via API
+1. 打开 screeps server CLI (在服务器上运行 `npx screeps cli` 或者通过 Steam Server UI)
+2. 执行 `setPassword('Username', 'YourDesiredPassword')`
+3. 现在你可以通过 API 来登录到服务器了
 
-# API
+## API
 
 ### config.auth.authUser(username,password)
-Returns a Promise, resovles to either the user object or `false`
 
-# Github Auth
-To enable github auth, you need to add a github client id and client secret to your .screepsrc  
-(Or ENV vars GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET with other launchers)
+返回 Promise，运行结果为 user object 或者在失败的时候返回 `false`
 
-Make sure to set the callback url to point to `/api/auth/github/return` on your server. ex: `https://screeps.mydomain.com/api/auth/github/return`  
-Get the id and secret from youe Github settings: https://github.com/settings/developers
+## 使用 Github 登录
+
+使用 GitHub 登录需要在 .screepsrc 文件中添加 github client id 和 client secret
+(也可以通过设置 `GITHUB_CLIENT_ID` 和 `GITHUB_CLIENT_SECRET` 环境变量)
+
+将回调链接(callback url)设置为 `/api/auth/github/return`。例如 `http://screeps.devtips.cn/api/auth/github/return`。
+
+GitHub 的 client id 和 client secret 可以在 GitHub 设置页中看到 https://github.com/settings/developers
 
 .screepsrc
 ```ini
@@ -44,14 +44,6 @@ clientId = <clientId>
 clientSecret = <clientSecret>
 ```
 
-# Initial CPU and Spawn Blocking
+## 鸣谢
 
-You can set the initial CPU that gets placed on a user (Steam users always receive 100), and also
-control whether the new user can place spawns. This can be used in combination with a whitelist
-or manual approval to control spawning.
-
-```ini
-[auth]
-cpu = 100
-preventSpawning = false
-```
+本项目基于 [screepsmod-auth@2.6.2](https://github.com/ScreepsMods/screepsmod-auth) 做了修改和汉化。

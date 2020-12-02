@@ -9,31 +9,36 @@
 	<body ng-controller="password as p">
 		<form class="flex col cont">
 			<div>
-				Old password is ignored if you don't have one set
+				如果您没有设置过密码，请将原密码留空。
 			</div>
 			<br>
 			<div class="flex">
-				<label class="flex-1">Old Password</label>
+				<label class="flex-1">原密码</label>
 				<input type="password" ng-model="p.oldpass">
 			</div>
 			<div class="flex">
-				<label class="flex-1">New Password</label>
+				<label class="flex-1">新密码</label>
 				<input type="password" ng-model="p.newpass" required>
 			</div>
 			<div class="flex">
-				<label class="flex-1">New Password (Repeat)</label>
+				<label class="flex-1">确认密码</label>
 				<input type="password" ng-model="p.newpass2" required>
 			</div>
 			<br>
 			<div class="flex steam">
 				<a href="/api/auth/steam" target="_blank" rel="opener" ng-click="p.steam($event)">
-					<img src="sits_01.png">
+					使用 Steam 登录
+				</a>
+			</div>
+			<div class="flex github">
+				<a href="/api/auth/github" target="_blank" rel="opener" ng-click="p.github($event)">
+					使用 GitHub 登录
 				</a>
 			</div>
 			<div class="status" ng-bind="p.status"></div>
 			<br>
 			<br>
-			NOTE: Internet Explorer not supported! If using IE, switch to Chrome, Firefox, Edge, or another modern browser instead.
+			<strong>注意:</strong> 由于服务器部署在国内，所以连接 Steam 可能会失败。如果失败了，请尝试使用 GitHub 登录。
 		</form>
 		<style>
 			body {
@@ -67,6 +72,9 @@
 			    padding: 0px 5px;
 			}
 			.steam {
+				justify-content: flex-end;
+			}
+			.github {
 				justify-content: flex-end;
 			}
 		</style>
