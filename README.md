@@ -33,7 +33,7 @@
 使用 GitHub 登录需要在 .screepsrc 文件中添加 github client id 和 client secret
 (也可以通过设置 `GITHUB_CLIENT_ID` 和 `GITHUB_CLIENT_SECRET` 环境变量)
 
-将回调链接(callback url)设置为 `/api/auth/github/return`。例如 `http://screeps.devtips.cn/api/auth/github/return`。
+将回调链接(callback url)设置为 `/api/auth/github/return`。例如 `http://screeps.devtips.cn:21025/api/auth/github/return`。
 
 GitHub 的 client id 和 client secret 可以在 GitHub 设置页中看到 https://github.com/settings/developers
 
