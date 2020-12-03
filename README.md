@@ -13,7 +13,7 @@
 1. 打开 steam 客户端，登录到私服(此步骤用来初始化账号信息)
 2. 浏览器打开 <http://screeps.devtips.cn:21025/authmod/password/>
 3. 输入密码
-4. 点击 **使用 Steam 登录m**
+4. 点击 **使用 Steam 登录**
 5. 当 Steam 授权成功后，密码设置成功
 
 ### 使用 Server CLI
