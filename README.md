@@ -26,7 +26,7 @@
 
 ### config.auth.authUser(username,password)
 
-返回 Promise，运行结果为 user object 或者在失败的时候返回 `false`
+返回 `Promise`，运行结果为 user object 或者在失败的时候返回 `false`
 
 ## 使用 Github 登录
 
