@@ -1,6 +1,6 @@
 # @screepsmod/auth
 
-> 本项目为 screeps 私服 <http://screeps.devtips.cn:21025> 添加了使用**用户名**和**密码**进行验证的功能。
+> 本项目为 screeps 私服 <https://screeps.devtips.cn> 添加了使用**用户名**和**密码**进行验证的功能。
 
 ## 安装 
 
